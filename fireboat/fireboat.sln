@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{978C7227-7B8B-CA5F-9308-B5F356E7BD93}") = "fireboat", "Assembly-CSharp.csproj", "{3C05F5A7-293B-D36D-1D71-094DA78C9EA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C05F5A7-293B-D36D-1D71-094DA78C9EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C05F5A7-293B-D36D-1D71-094DA78C9EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C05F5A7-293B-D36D-1D71-094DA78C9EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C05F5A7-293B-D36D-1D71-094DA78C9EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
