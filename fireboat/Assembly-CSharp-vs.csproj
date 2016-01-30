@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\Scripts\BoatMovement.cs" />
-     <Compile Include="Assets\Resources\Scripts\DestroyAfterAnim.cs" />
+     <Compile Include="Assets\Resources\Scripts\BoatSpawner.cs" />
+     <Compile Include="Assets\Resources\Scripts\ChangeSpriteOnInput.cs" />
+     <Compile Include="Assets\Resources\Scripts\DestroyMissedBoat.cs" />
      <Compile Include="Assets\Resources\Scripts\GenericSingleton.cs" />
      <Compile Include="Assets\Resources\Scripts\ShootArrow.cs" />
      <Compile Include="Assets\Resources\Scripts\SliderMovement.cs" />

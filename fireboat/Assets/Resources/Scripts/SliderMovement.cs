@@ -42,6 +42,8 @@ public class SliderMovement : MonoBehaviour {
 
         if (!isFiring)
             PlayerInput();
+
+       // Debug.Log("Paused: " + isPaused + " and Firing: " + isFiring);
     }
 
     void MoveSlider()
@@ -59,8 +61,7 @@ public class SliderMovement : MonoBehaviour {
         if ( Input.GetKeyDown (KeyCode.S))
         {
             isFiring = true;
-            StartCoroutine(FireArrow());
-            isFiring = false;
+            StartCoroutine(FireArrow());            
         }
     }
 
@@ -82,5 +83,7 @@ public class SliderMovement : MonoBehaviour {
         yield return new WaitForSeconds(3);
         flavorText[textType].enabled = false;
         isPaused = false;
+        isFiring = false;
+        slider.value = Random.Range(0, 100);
     }
 }
