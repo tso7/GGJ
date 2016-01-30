@@ -21,9 +21,6 @@ public class BoatMovement : MonoBehaviour {
     {
         float newPositionY = Mathf.Sin(Time.time * boatBobSpeed);
         transform.position = startPosition + Vector3.up * (newPositionY / boatBobDamper);
-        Debug.Log(Vector3.up * (newPositionY / boatBobDamper));
-        Debug.Log("Position: "+transform.position);
         transform.position += Vector3.right * moveSpeed * Time.time;
-
      }
 }

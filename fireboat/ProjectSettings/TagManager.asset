@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - slider
+  - text1
+  - text2
+  - text3
+  - ship
+  - arrow
   layers:
   - Default
   - TransparentFX
