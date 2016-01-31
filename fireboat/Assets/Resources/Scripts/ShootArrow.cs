@@ -18,6 +18,7 @@ public class ShootArrow : MonoBehaviour {
     // Audio Clips
     public AudioClip[] arrowRelease;
     public AudioClip arrowImpact;
+    public AudioClip arrowImpactCiv;
     public AudioClip[] arrowMiss;
 
     // Private vars
@@ -44,7 +45,7 @@ public class ShootArrow : MonoBehaviour {
         {
             isFiredLeft = true;
             curArrowLeft = (GameObject)Instantiate(arrow, startMarkerLeft.position, Quaternion.identity);
-            anim = curArrowLeft.GetComponent<Animator>();
+            //anim = curArrowLeft.GetComponent<Animator>();
 
             switch (SliderMovementLeft.curState)
             {
@@ -78,9 +79,14 @@ public class ShootArrow : MonoBehaviour {
                     
                     break;
             }
+            
+            // Show flavor text if wrong target
+            if (curTarget.gameObject.name.Contains("Civilian"))
+                SliderMovementLeft.Instance.flavorText[3].enabled = true;
+
             StartCoroutine(ArrowTriggerLeft(startMarkerLeft.position, curTarget, 2.0f));
             SoundManager.instance.LeftArrowRandom(arrowRelease);
-            anim.SetBool("fired", true);
+            //anim.SetBool("fired", true);
         }
     }
     IEnumerator ArrowTriggerLeft(Vector3 startPos, GameObject target, float time) {
@@ -90,7 +96,7 @@ public class ShootArrow : MonoBehaviour {
         while (i < 1.0)
         {
             Vector3 endPos = target.transform.position;
-            endPos.y += 1.0f;
+            //endPos.y += 1.0f;
             i += Time.deltaTime * rate;
             curArrowLeft.transform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;
@@ -99,11 +105,17 @@ public class ShootArrow : MonoBehaviour {
         if (SliderMovementLeft.curState == SliderMovementLeft.State.Sweet || (SliderMovementLeft.curState == SliderMovementLeft.State.Meh && yellowLeft))
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
-            SoundManager.instance.PlaySingle(arrowImpact);
             if (target.gameObject.name.Contains("Civilian"))
+            {
+                SoundManager.instance.PlaySingle(arrowImpactCiv);
                 UpdateScore.ScoreUpdate(1, -3);
+                
+            }
             else
+            {
+                SoundManager.instance.PlaySingle(arrowImpact);
                 UpdateScore.ScoreUpdate(1, 1);
+            }
         }
         else
         {
@@ -111,7 +123,12 @@ public class ShootArrow : MonoBehaviour {
         }
         while (SliderMovementLeft.isFiring)
             yield return null;
+        
+        // Reset final flavor text if activated
+        SliderMovementLeft.Instance.flavorText[3].enabled = false;
+
         isFiredLeft = false;
+
     }
 
     void CheckForShotRight()
@@ -120,7 +137,7 @@ public class ShootArrow : MonoBehaviour {
         {
             isFiredRight = true;            
             curArrowRight = (GameObject)Instantiate(arrow, startMarkerRight.position, Quaternion.identity);
-            anim = curArrowRight.GetComponent<Animator>();
+            //anim = curArrowRight.GetComponent<Animator>();
 
             switch (SliderMovementRight.curState)
             {
@@ -153,9 +170,13 @@ public class ShootArrow : MonoBehaviour {
                     break;
             }
 
+            // Show flavor text if wrong target
+            if (curTarget.gameObject.name.Contains("Civilian"))
+                SliderMovementRight.Instance.flavorText[3].enabled = true;
+
             StartCoroutine(ArrowTriggerRight(startMarkerRight.position, curTarget, 2.0f));
             SoundManager.instance.RightArrowRandom(arrowRelease);
-            anim.SetBool("fired", true);
+            //anim.SetBool("fired", true);
         }
     }
     IEnumerator ArrowTriggerRight(Vector3 startPos, GameObject target, float time)
@@ -166,7 +187,7 @@ public class ShootArrow : MonoBehaviour {
         while (i < 1.0)
         {
             Vector3 endPos = target.transform.position;
-            endPos.y += 1.0f;
+            //endPos.y += 1.0f;
             i += Time.deltaTime * rate;
             curArrowRight.transform.position = Vector3.Lerp(startPos, endPos, i);
             yield return null;
@@ -177,16 +198,27 @@ public class ShootArrow : MonoBehaviour {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
             if (target.gameObject.name.Contains("Civilian"))
+            {
+                SoundManager.instance.PlaySingle(arrowImpactCiv);
                 UpdateScore.ScoreUpdate(2, -3);
+            }
             else
+            {
+                SoundManager.instance.PlaySingle(arrowImpact);
                 UpdateScore.ScoreUpdate(2, 1);
+            }
         }
         else
         {
             SoundManager.instance.RightArrowRandom(arrowMiss);
         }
+
         while (SliderMovementRight.isFiring)
             yield return null;
+
+        // Reset final flavor text if activated
+        SliderMovementRight.Instance.flavorText[3].enabled = false;
+
         isFiredRight = false;
     }
 }

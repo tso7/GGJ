@@ -8,10 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/Scenes/title.unity
   - enabled: 1
-    path: Assets/Resources/Scenes/alpha.unity
+    path: Assets/Resources/Scenes/beta v2.unity
   - enabled: 1
     path: Assets/Resources/Scenes/p1win.unity
   - enabled: 1
     path: Assets/Resources/Scenes/p2win.unity
-  - enabled: 1
-    path: Assets/Resources/Scenes/Credits.unity

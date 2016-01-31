@@ -54,7 +54,6 @@
      <Compile Include="Assets\Resources\Scripts\RandomFloatGenerator.cs" />
      <Compile Include="Assets\Resources\Scripts\RestartGame.cs" />
      <Compile Include="Assets\Resources\Scripts\ShootArrow.cs" />
-     <Compile Include="Assets\Resources\Scripts\ShowCredits.cs" />
      <Compile Include="Assets\Resources\Scripts\SliderMovementLeft.cs" />
      <Compile Include="Assets\Resources\Scripts\SliderMovementRight.cs" />
      <Compile Include="Assets\Resources\Scripts\SoundManager.cs" />

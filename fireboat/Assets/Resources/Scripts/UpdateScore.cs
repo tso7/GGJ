@@ -7,13 +7,15 @@ public class UpdateScore : MonoBehaviour {
     public Text leftScoreText;
     public Text rightScoreText;
 
-    private static int leftScore = 0;
-    private static int rightScore = 0;
+    public int winScore = 5;
+
+    public static int leftScore = 0;
+    public static int rightScore = 0;
     
     void Update()
     {
-        leftScoreText.text = "Score: " + leftScore;
-        rightScoreText.text = "Score: " + rightScore;
+        leftScoreText.text = "ALFIHLD: " + leftScore;
+        rightScoreText.text = "BRYNJAR: " + rightScore;
         CheckWinCondition();
     }
 
@@ -32,11 +34,11 @@ public class UpdateScore : MonoBehaviour {
 
     void CheckWinCondition()
     {
-        if (leftScore == 10)
+        if (leftScore == winScore)
         {
             Application.LoadLevel(2);
         }
-        if (rightScore == 10)
+        if (rightScore == winScore)
         {
             Application.LoadLevel(3);
         }

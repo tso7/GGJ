@@ -4,7 +4,11 @@ using System.Collections;
 public class RestartGame : MonoBehaviour {
 
 	void Update () {
-        if (Time.timeSinceLevelLoad > 3f)
-            Application.LoadLevel(4);
-	}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UpdateScore.leftScore = 0;
+            UpdateScore.rightScore = 0;
+            Application.LoadLevel(0);
+        }
+    }
 }

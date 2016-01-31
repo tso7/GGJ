@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class SliderMovementRight: MonoBehaviour {
+public class SliderMovementRight: GenericSingleton<SliderMovementRight> {
 
     public enum State
     {
@@ -74,9 +74,9 @@ public class SliderMovementRight: MonoBehaviour {
         isPaused = true;
         float curVal = slider.value;
         int textType;
-        if (curVal > 40 && curVal < 60)
+        if (curVal > 45 && curVal < 55)
             textType = 0;
-        else if (curVal > 25 && curVal < 75)
+        else if (curVal > 35 && curVal < 65)
             textType = 1;
         else 
             textType = 2;
