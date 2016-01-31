@@ -661,18 +661,18 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: cd9c26909f734044f834b7801222340e, type: 3}
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'BRYNJAR: 0'
 --- !u!114 &11434038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,18 +729,18 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_Font: {fileID: 12800000, guid: cd9c26909f734044f834b7801222340e, type: 3}
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'ALFHILD: 0'
 --- !u!114 &11441486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -798,6 +798,7 @@ MonoBehaviour:
   - {fileID: 11400736}
   - {fileID: 11457604}
   - {fileID: 11434038}
+  - {fileID: 11403560}
 --- !u!114 &11451220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,6 +815,7 @@ MonoBehaviour:
   - {fileID: 11441486}
   - {fileID: 11424274}
   - {fileID: 11469622}
+  - {fileID: 11453630}
 --- !u!114 &11453630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -953,6 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftScoreText: {fileID: 11435076}
   rightScoreText: {fileID: 11429808}
+  winScore: 5
 --- !u!114 &11483250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1304,7 +1307,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 147, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22433994
 RectTransform:
@@ -1321,7 +1324,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 147, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22434828
 RectTransform:

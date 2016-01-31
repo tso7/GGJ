@@ -40,8 +40,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boatPrefab: {fileID: 0}
-  spawnPosition: {x: 0, y: 0, z: 0}
-  spawnWaitTime: 0
+  _civilianPrefab: {fileID: 0}
+  spawnPosition: {x: -11, y: 0, z: -.300000012}
+  spawnWaitTime: 4
   soundManager: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

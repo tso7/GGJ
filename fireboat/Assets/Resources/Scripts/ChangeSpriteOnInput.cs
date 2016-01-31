@@ -16,10 +16,12 @@ public class ChangeSpriteOnInput : MonoBehaviour {
 	
 	}
 	
-	public void ChangeSprite()
+	public void ChangeSprite(int type)
 	{
-        if (spriteRenderer.sprite == sprite1)
-            spriteRenderer.sprite = sprite2;
-	}
-
+        ParticleSystem[] ps = GetComponentsInChildren<ParticleSystem>();
+        if (type == 2)
+            ps[1].Play();
+        else
+            ps[0].Play();
+    }
 }

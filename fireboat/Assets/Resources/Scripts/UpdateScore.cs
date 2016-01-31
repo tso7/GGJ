@@ -14,7 +14,7 @@ public class UpdateScore : MonoBehaviour {
     
     void Update()
     {
-        leftScoreText.text = "ALFIHLD: " + leftScore;
+        leftScoreText.text = "ALFHILD: " + leftScore;
         rightScoreText.text = "BRYNJAR: " + rightScore;
         CheckWinCondition();
     }

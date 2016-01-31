@@ -4,7 +4,7 @@ using System.Collections;
 public class ShootArrow : MonoBehaviour {
 
     // Public vars
-    public GameObject arrow;
+    public GameObject arrowLeft, arrowRight;
     public float speed = 5.0f;
 
     private bool yellowLeft = false;
@@ -44,7 +44,7 @@ public class ShootArrow : MonoBehaviour {
         if (SliderMovementLeft.curState != SliderMovementLeft.State.Moving && !isFiredLeft)
         {
             isFiredLeft = true;
-            curArrowLeft = (GameObject)Instantiate(arrow, startMarkerLeft.position, Quaternion.identity);
+            curArrowLeft = (GameObject)Instantiate(arrowLeft, startMarkerLeft.position, Quaternion.identity);
             //anim = curArrowLeft.GetComponent<Animator>();
 
             switch (SliderMovementLeft.curState)
@@ -104,15 +104,17 @@ public class ShootArrow : MonoBehaviour {
         Destroy(curArrowLeft);
         if (SliderMovementLeft.curState == SliderMovementLeft.State.Sweet || (SliderMovementLeft.curState == SliderMovementLeft.State.Meh && yellowLeft))
         {
-            target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
+            
             if (target.gameObject.name.Contains("Civilian"))
             {
+                target.GetComponent<ChangeSpriteOnInput>().ChangeSprite(3);
                 SoundManager.instance.PlaySingle(arrowImpactCiv);
                 UpdateScore.ScoreUpdate(1, -3);
                 
             }
             else
             {
+                target.GetComponent<ChangeSpriteOnInput>().ChangeSprite(1);
                 SoundManager.instance.PlaySingle(arrowImpact);
                 UpdateScore.ScoreUpdate(1, 1);
             }
@@ -136,7 +138,7 @@ public class ShootArrow : MonoBehaviour {
         if (SliderMovementRight.curState != SliderMovementRight.State.Moving && !isFiredRight)
         {
             isFiredRight = true;            
-            curArrowRight = (GameObject)Instantiate(arrow, startMarkerRight.position, Quaternion.identity);
+            curArrowRight = (GameObject)Instantiate(arrowRight, startMarkerRight.position, Quaternion.identity);
             //anim = curArrowRight.GetComponent<Animator>();
 
             switch (SliderMovementRight.curState)
@@ -195,15 +197,16 @@ public class ShootArrow : MonoBehaviour {
         Destroy(curArrowRight);
         if (SliderMovementRight.curState == SliderMovementRight.State.Sweet || (SliderMovementRight.curState == SliderMovementRight.State.Meh && yellowRight))
         {
-            target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
             if (target.gameObject.name.Contains("Civilian"))
             {
+                target.GetComponent<ChangeSpriteOnInput>().ChangeSprite(3);
                 SoundManager.instance.PlaySingle(arrowImpactCiv);
                 UpdateScore.ScoreUpdate(2, -3);
             }
             else
             {
+                target.GetComponent<ChangeSpriteOnInput>().ChangeSprite(2);
                 SoundManager.instance.PlaySingle(arrowImpact);
                 UpdateScore.ScoreUpdate(2, 1);
             }

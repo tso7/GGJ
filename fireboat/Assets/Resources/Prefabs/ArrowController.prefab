@@ -39,11 +39,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b02e059878203498513fa819316040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 0}
+  arrowLeft: {fileID: 0}
+  arrowRight: {fileID: 0}
   speed: 2
-  startMarker: {fileID: 0}
-  endMarker: {fileID: 0}
-  isFired: 0
+  startMarkerLeft: {fileID: 0}
+  startMarkerRight: {fileID: 0}
+  endMarkers: []
+  missPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  arrowRelease:
+  - {fileID: 8300000, guid: b67f174db3d17f94ba6176713f89f454, type: 3}
+  - {fileID: 8300000, guid: 825d98bd3ec9aca41b7b1190eb29d55d, type: 3}
+  - {fileID: 8300000, guid: ee776036bee0549408d90eceafbce4a5, type: 3}
+  - {fileID: 8300000, guid: 2440ca3e4e49c2242958bbef154fce6e, type: 3}
+  arrowImpact: {fileID: 8300000, guid: dc3bf28e1b8c1c146aaa936f0ca71850, type: 3}
+  arrowImpactCiv: {fileID: 8300000, guid: 58a68cbdea0037044932b9a8e554f930, type: 3}
+  arrowMiss:
+  - {fileID: 8300000, guid: 5f4c41e250546bd4c9cbda504b877093, type: 3}
+  - {fileID: 8300000, guid: 4db3f456d6101834f82733f67a02f1f0, type: 3}
+  - {fileID: 8300000, guid: 72fb442d94e8f5c4cbe8e915aeb78d30, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
