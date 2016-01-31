@@ -19,9 +19,29 @@ public class ChangeSpriteOnInput : MonoBehaviour {
 	public void ChangeSprite(int type)
 	{
         ParticleSystem[] ps = GetComponentsInChildren<ParticleSystem>();
-        if (type == 2)
-            ps[1].Play();
-        else
-            ps[0].Play();
+        switch (type)
+        {
+            case 1:
+                if (ps[2].isPlaying)
+                {
+                    ps[2].Stop();
+                    ps[4].Play();
+                }
+                else
+                    ps[0].Play();
+                break;
+            case 2:
+                if (ps[0].isPlaying)
+                {
+                    ps[0].Stop();
+                    ps[4].Play();
+                }
+                else
+                    ps[2].Play();
+                break;
+            case 3:
+                ps[0].Play();
+                break;    
+        }
     }
 }

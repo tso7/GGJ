@@ -28,7 +28,7 @@ public class BoatSpawner : GenericSingleton<BoatSpawner>
                 _boat = _civilianPrefab;
             else
             {
-                float random = Random.Range(0, 3);
+                float random = Random.Range(0, 4);
                 _boat = random == 0 ? _civilianPrefab : _boatPrefab;
             }
             Instantiate(_boat, spawnPosition, Quaternion.identity);

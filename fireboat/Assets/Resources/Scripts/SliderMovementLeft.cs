@@ -17,6 +17,7 @@ public class SliderMovementLeft : GenericSingleton<SliderMovementLeft> {
 
     // GUI Text
     public Image[] flavorText;
+    public Image coolDown;
 
     // Slider
     private Slider slider;
@@ -33,6 +34,7 @@ public class SliderMovementLeft : GenericSingleton<SliderMovementLeft> {
         slider = GameObject.FindGameObjectWithTag("sliderLeft").GetComponent<Slider>();
         slider.value = 0;
         curState = State.Moving;
+        coolDown.enabled = false;
         for (int i = 0; i < flavorText.Length; i++)
             flavorText[i].enabled = false;
     }
@@ -65,6 +67,8 @@ public class SliderMovementLeft : GenericSingleton<SliderMovementLeft> {
         if ( Input.GetKeyDown (KeyCode.S))
         {
             isFiring = true;
+            coolDown.enabled = true;
+            coolDown.GetComponent<Cooldown>().coolingDown = true;
             StartCoroutine(FireArrow());            
         }
     }
@@ -88,6 +92,8 @@ public class SliderMovementLeft : GenericSingleton<SliderMovementLeft> {
         flavorText[textType].enabled = false;
         isPaused = false;
         isFiring = false;
+        coolDown.enabled = false;
+        coolDown.GetComponent<Cooldown>().coolingDown = false;
         curState = State.Moving;
         slider.value = Random.Range(0, 100);
     }
