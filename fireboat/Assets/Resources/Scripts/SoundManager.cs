@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 	public AudioSource efxSource;
 	public AudioSource musicSource;
     public AudioSource arrowLeft, arrowRight;
+    public AudioSource combo;
     public static SoundManager instance = null;
 
 	public float lowPitchRange = 0.95f;
@@ -30,8 +31,13 @@ public class SoundManager : MonoBehaviour
 		efxSource.clip = clip;
 		efxSource.Play ();
 	}
+    public void PlayCombo(AudioClip clip)
+    {
+        combo.clip = clip;
+        combo.Play();
+    }
 
-	public void LeftArrowRandom(params AudioClip [] clips)
+    public void LeftArrowRandom(params AudioClip [] clips)
 	{
 		int randomIndex = Random.Range (0, clips.Length);
 		float randomPitch = Random.Range (lowPitchRange, highPitchRange);

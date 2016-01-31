@@ -3,7 +3,16 @@ using System.Collections;
 
 public class RestartGame : MonoBehaviour {
 
-	void Update () {
+    public AudioClip end;
+    private AudioSource src;
+
+    void Start()
+    {
+        src = gameObject.GetComponent<AudioSource>();
+        src.PlayOneShot(end, 0.7f);
+    }
+
+    void Update () {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UpdateScore.leftScore = 0;

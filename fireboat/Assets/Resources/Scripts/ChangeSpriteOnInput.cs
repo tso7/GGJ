@@ -6,6 +6,8 @@ public class ChangeSpriteOnInput : MonoBehaviour {
 	public Sprite sprite1;
 	public Sprite sprite2;
 
+    public AudioClip arrowCombo;
+
 	private SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
@@ -26,8 +28,10 @@ public class ChangeSpriteOnInput : MonoBehaviour {
                 {
                     ps[2].Stop();
                     ps[4].Play();
+                    ps[5].Play();
                     UpdateScore.ScoreUpdate(1, 1);
                     UpdateScore.ScoreUpdate(2, 1);
+                    SoundManager.instance.PlayCombo(arrowCombo);
                 }
                 else
                     ps[0].Play();
@@ -37,8 +41,10 @@ public class ChangeSpriteOnInput : MonoBehaviour {
                 {
                     ps[0].Stop();
                     ps[4].Play();
+                    ps[5].Play();
                     UpdateScore.ScoreUpdate(2, 1);
                     UpdateScore.ScoreUpdate(1, 1);
+                    SoundManager.instance.PlayCombo(arrowCombo);
                 }
                 else
                     ps[2].Play();
