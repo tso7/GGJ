@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/p1win.unity
   - enabled: 1
     path: Assets/Resources/Scenes/p2win.unity
+  - enabled: 1
+    path: Assets/Resources/Scenes/Credits.unity

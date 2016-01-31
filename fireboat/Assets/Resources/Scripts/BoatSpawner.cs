@@ -4,7 +4,7 @@ using System.Collections;
 public class BoatSpawner : GenericSingleton<BoatSpawner>
 {
     // Bird models
-    public GameObject _boatPrefab;
+    public GameObject _boatPrefab, _civilianPrefab;
 
     // Other variables
     public Vector3 spawnPosition;
@@ -13,14 +13,25 @@ public class BoatSpawner : GenericSingleton<BoatSpawner>
 
     void Start()
     {
-        StartCoroutine(SpawnBoats(_boatPrefab, 100));                     
+        StartCoroutine(SpawnBoats(200));                     
     }
     
     // Spawn boats horizontally
-    IEnumerator SpawnBoats(GameObject _boat, int _count)
+    IEnumerator SpawnBoats(int _count)
     {
+        GameObject _boat;
         for (int i = 0; i < _count; i++)
         {
+            if (i < 3)
+                _boat = _boatPrefab;
+            else if (i == 3)
+                _boat = _civilianPrefab;
+            else
+            {
+                float random = Random.Range(0, 3);
+                Debug.Log(random);
+                _boat = random == 0 ? _civilianPrefab : _boatPrefab;
+            }
             Instantiate(_boat, spawnPosition, Quaternion.identity);
             //soundManager.playBoatSpawn();
             yield return new WaitForSeconds(spawnWaitTime);

@@ -51,10 +51,7 @@ public class ShootArrow : MonoBehaviour {
                     endMarkers = GameObject.FindGameObjectsWithTag("boat");
                     foreach (GameObject endMarker in endMarkers)
                     {
-                        if (endMarker.transform.position.x < 0)
-                        {
-                            curTarget = endMarker;
-                        }
+                       curTarget = endMarker;
                     }
                     break;
                 case SliderMovementLeft.State.Pffft:
@@ -66,7 +63,6 @@ public class ShootArrow : MonoBehaviour {
                     curTarget = missPoints[missPointIndex].gameObject;
                     break;
             }
-
             StartCoroutine(ArrowTriggerLeft(startMarkerLeft.position, curTarget, 2.0f));
             SoundManager.instance.LeftArrowRandom(arrowRelease);
             anim.SetBool("fired", true);
@@ -89,7 +85,10 @@ public class ShootArrow : MonoBehaviour {
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
-            UpdateScore.ScoreUpdate(1, 1);
+            if (target.gameObject.name.Contains("Civilian"))
+                UpdateScore.ScoreUpdate(1, -3);
+            else
+                UpdateScore.ScoreUpdate(1, 1);
         }
         else
         {
@@ -114,10 +113,7 @@ public class ShootArrow : MonoBehaviour {
                     endMarkers = GameObject.FindGameObjectsWithTag("boat");
                     foreach (GameObject endMarker in endMarkers)
                     {
-                        if (endMarker.transform.position.x < 0)
-                        {
-                            curTarget = endMarker;
-                        }
+                        curTarget = endMarker;
                     }
                     break;
                 case SliderMovementRight.State.Pffft:
@@ -153,7 +149,10 @@ public class ShootArrow : MonoBehaviour {
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
-            UpdateScore.ScoreUpdate(2, 1);
+            if (target.gameObject.name.Contains("Civilian"))
+                UpdateScore.ScoreUpdate(2, -3);
+            else
+                UpdateScore.ScoreUpdate(2, 1);
         }
         else
         {

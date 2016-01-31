@@ -12,8 +12,8 @@ public class UpdateScore : MonoBehaviour {
     
     void Update()
     {
-        leftScoreText.text = "X " + leftScore;
-        rightScoreText.text = "X " + rightScore;
+        leftScoreText.text = "Score: " + leftScore;
+        rightScoreText.text = "Score: " + rightScore;
         CheckWinCondition();
     }
 
@@ -32,11 +32,11 @@ public class UpdateScore : MonoBehaviour {
 
     void CheckWinCondition()
     {
-        if (leftScore == 5)
+        if (leftScore == 10)
         {
             Application.LoadLevel(2);
         }
-        if (rightScore == 5)
+        if (rightScore == 10)
         {
             Application.LoadLevel(3);
         }
