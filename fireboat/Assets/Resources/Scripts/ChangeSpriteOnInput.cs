@@ -18,10 +18,8 @@ public class ChangeSpriteOnInput : MonoBehaviour {
 	
 	public void ChangeSprite()
 	{
-		if (spriteRenderer.sprite == sprite1)
-			spriteRenderer.sprite = sprite2;
-		else
-			spriteRenderer.sprite = sprite1;
+        if (spriteRenderer.sprite == sprite1)
+            spriteRenderer.sprite = sprite2;
 	}
 
 }

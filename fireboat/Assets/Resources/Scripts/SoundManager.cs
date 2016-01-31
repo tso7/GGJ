@@ -6,8 +6,8 @@ public class SoundManager : MonoBehaviour
 
 	public AudioSource efxSource;
 	public AudioSource musicSource;
-    public AudioSource waveSource;
-	public static SoundManager instance = null;
+    public AudioSource arrowLeft, arrowRight;
+    public static SoundManager instance = null;
 
 	public float lowPitchRange = 0.95f;
 	public float highPitchRange = 1.05f;
@@ -31,18 +31,28 @@ public class SoundManager : MonoBehaviour
 		efxSource.Play ();
 	}
 
-	public void RandomizeSfx(params AudioClip [] clips)
+	public void LeftArrowRandom(params AudioClip [] clips)
 	{
 		int randomIndex = Random.Range (0, clips.Length);
 		float randomPitch = Random.Range (lowPitchRange, highPitchRange);
 
-		efxSource.pitch = randomPitch;
-		efxSource.clip = clips [randomIndex];
-		efxSource.Play();
+        arrowLeft.pitch = randomPitch;
+        arrowLeft.clip = clips [randomIndex];
+		arrowLeft.Play();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void RightArrowRandom(params AudioClip[] clips)
+    {
+        int randomIndex = Random.Range(0, clips.Length);
+        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+
+        arrowRight.pitch = randomPitch;
+        arrowRight.clip = clips[randomIndex];
+        arrowRight.Play();
+    }
+
+    // Update is called once per frame
+    void Update () {
 	
 	}
 }

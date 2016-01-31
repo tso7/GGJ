@@ -2,13 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class SliderMovement : MonoBehaviour {
+public class SliderMovementRight: MonoBehaviour {
 
     public enum State
     {
         Sweet,
         Meh,
-        Pffft
+        Pffft,
+        Moving
     };
     // Variables
     public float sliderSpeed = 2f;
@@ -23,14 +24,15 @@ public class SliderMovement : MonoBehaviour {
 
     // Boolean for movement
     private bool isPaused = false;
-    private bool isFiring = false;
+    public static bool isFiring = false;
     private bool boundaryHit = false;
         
     // Use this for initialization
     void Start()
     {
-        slider = GameObject.FindGameObjectWithTag("slider").GetComponent<Slider>();
+        slider = GameObject.FindGameObjectWithTag("sliderRight").GetComponent<Slider>();
         slider.value = 0;
+        curState = State.Moving;
         for (int i = 0; i < flavorText.Length; i++)
             flavorText[i].enabled = false;
     }
@@ -58,7 +60,7 @@ public class SliderMovement : MonoBehaviour {
 
     void PlayerInput()
     {
-        if ( Input.GetKeyDown (KeyCode.S))
+        if ( Input.GetKeyDown (KeyCode.UpArrow))
         {
             isFiring = true;
             StartCoroutine(FireArrow());            
@@ -74,7 +76,7 @@ public class SliderMovement : MonoBehaviour {
             textType = 0;
         else if (curVal > 25 && curVal < 75)
             textType = 1;
-        else
+        else 
             textType = 2;
 
         curState = (State)textType;
@@ -84,6 +86,7 @@ public class SliderMovement : MonoBehaviour {
         flavorText[textType].enabled = false;
         isPaused = false;
         isFiring = false;
+        curState = State.Moving;
         slider.value = Random.Range(0, 100);
     }
 }

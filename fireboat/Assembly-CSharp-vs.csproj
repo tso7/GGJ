@@ -52,7 +52,8 @@
      <Compile Include="Assets\Resources\Scripts\DestroyMissedBoat.cs" />
      <Compile Include="Assets\Resources\Scripts\GenericSingleton.cs" />
      <Compile Include="Assets\Resources\Scripts\ShootArrow.cs" />
-     <Compile Include="Assets\Resources\Scripts\SliderMovement.cs" />
+     <Compile Include="Assets\Resources\Scripts\SliderMovementLeft.cs" />
+     <Compile Include="Assets\Resources\Scripts\SliderMovementRight.cs" />
      <Compile Include="Assets\Resources\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Resources\Scripts\WaveScroller.cs" />
  <Reference Include="UnityEngine.UI">

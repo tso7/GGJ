@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - slider
+  - sliderLeft
   - text1
   - text2
   - text3
   - boat
   - arrow
+  - sliderRight
   layers:
   - Default
   - TransparentFX
