@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RandomFloatGenerator : MonoBehaviour 
+public class RandomFloatGenerator : GenericSingleton<RandomFloatGenerator> 
 {
 
-	public float min = 3.0f;
-	public float max = 6.0f;
-	public float result;
+	public float min = 2.0f;
+	public float max = 5.0f;
+	public float result = 3.0f;
 	public float timer = 10f;
 	private int x = 0;
 	private int y = 2;
@@ -19,19 +19,17 @@ public class RandomFloatGenerator : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		timer -= 0.05f;
+		timer -= Time.deltaTime;
 		if (timer < 0) 
 		{
-			RandomFloat ();
-			bool res = fiftyfifty ();
-			Debug.Log (res);
-			timer = 10f;
+            result = UnityEngine.Random.Range(min, max);
+            timer = 10f;
 		}
 	}
 
-	public void RandomFloat()
+	public float RandomFloat()
 	{
-		result = UnityEngine.Random.Range (min, max);
+		return result;
 	}
 
 	public bool fiftyfifty()

@@ -16,7 +16,7 @@ public class SliderMovementLeft : MonoBehaviour {
     public static State curState;
 
     // GUI Text
-    public Text[] flavorText;
+    public Image[] flavorText;
 
     // Slider
     private Slider slider;
@@ -46,6 +46,8 @@ public class SliderMovementLeft : MonoBehaviour {
             PlayerInput();
 
        // Debug.Log("Paused: " + isPaused + " and Firing: " + isFiring);
+
+        sliderSpeed = RandomFloatGenerator.Instance.RandomFloat();
     }
 
     void MoveSlider()

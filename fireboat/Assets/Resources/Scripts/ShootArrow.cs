@@ -7,6 +7,9 @@ public class ShootArrow : MonoBehaviour {
     public GameObject arrow;
     public float speed = 5.0f;
 
+    private bool yellowLeft = false;
+    private bool yellowRight = false;
+
     public Transform startMarkerLeft;
     public Transform startMarkerRight;
     public GameObject[] endMarkers;
@@ -28,8 +31,6 @@ public class ShootArrow : MonoBehaviour {
 
     private GameObject curTarget;
     private int missPointIndex = 0;
-
-    
 
     void Update()
     {
@@ -59,8 +60,22 @@ public class ShootArrow : MonoBehaviour {
                     curTarget = missPoints[missPointIndex].gameObject;
                     break;
                 case SliderMovementLeft.State.Meh:
-                    missPointIndex = Random.Range(0, missPoints.Length);
-                    curTarget = missPoints[missPointIndex].gameObject;
+                    yellowLeft = RandomFloatGenerator.Instance.fiftyfifty();
+                    //Debug.Log(yellowLeft);
+                    if(yellowLeft)
+                    {
+                        endMarkers = GameObject.FindGameObjectsWithTag("boat");
+                        foreach (GameObject endMarker in endMarkers)
+                        {
+                            curTarget = endMarker;
+                        }
+                    }
+                    else
+                    {
+                        missPointIndex = Random.Range(0, missPoints.Length);
+                        curTarget = missPoints[missPointIndex].gameObject;
+                    }
+                    
                     break;
             }
             StartCoroutine(ArrowTriggerLeft(startMarkerLeft.position, curTarget, 2.0f));
@@ -81,7 +96,7 @@ public class ShootArrow : MonoBehaviour {
             yield return null;
         }
         Destroy(curArrowLeft);
-        if (SliderMovementLeft.curState == SliderMovementLeft.State.Sweet)
+        if (SliderMovementLeft.curState == SliderMovementLeft.State.Sweet || (SliderMovementLeft.curState == SliderMovementLeft.State.Meh && yellowLeft))
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
@@ -121,8 +136,20 @@ public class ShootArrow : MonoBehaviour {
                     curTarget = missPoints[missPointIndex].gameObject;
                     break;
                 case SliderMovementRight.State.Meh:
-                    missPointIndex = Random.Range(0, missPoints.Length);
-                    curTarget = missPoints[missPointIndex].gameObject;
+                    yellowRight = RandomFloatGenerator.Instance.fiftyfifty();
+                    if(yellowRight)
+                    {
+                        endMarkers = GameObject.FindGameObjectsWithTag("boat");
+                        foreach (GameObject endMarker in endMarkers)
+                        {
+                            curTarget = endMarker;
+                        }
+                    }
+                    else
+                    {
+                        missPointIndex = Random.Range(0, missPoints.Length);
+                        curTarget = missPoints[missPointIndex].gameObject;
+                    }
                     break;
             }
 
@@ -145,7 +172,7 @@ public class ShootArrow : MonoBehaviour {
             yield return null;
         }
         Destroy(curArrowRight);
-        if (SliderMovementRight.curState == SliderMovementRight.State.Sweet)
+        if (SliderMovementRight.curState == SliderMovementRight.State.Sweet || (SliderMovementRight.curState == SliderMovementRight.State.Meh && yellowRight))
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
