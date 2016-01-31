@@ -80,23 +80,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &168024
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 414946}
-  - 198: {fileID: 19801688}
-  - 199: {fileID: 19920474}
-  m_Layer: 0
-  m_Name: flame0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &170022
 GameObject:
   m_ObjectHideFlags: 1
@@ -109,6 +92,23 @@ GameObject:
   - 114: {fileID: 11403908}
   m_Layer: 0
   m_Name: Waves_light_colour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &180664
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 458342}
+  - 198: {fileID: 19805172}
+  - 199: {fileID: 19910772}
+  m_Layer: 0
+  m_Name: flame1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,18 +203,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 476632}
   m_RootOrder: 1
---- !u!4 &414946
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168024}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.20000005, y: 1.13, z: -4.73000002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 476632}
-  m_RootOrder: 0
 --- !u!4 &422894
 Transform:
   m_ObjectHideFlags: 1
@@ -255,6 +243,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477808}
   m_RootOrder: 0
+--- !u!4 &458342
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 180664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.20000005, y: 1.13, z: -4.73000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 476632}
+  m_RootOrder: 0
 --- !u!4 &461812
 Transform:
   m_ObjectHideFlags: 1
@@ -289,7 +289,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 414946}
+  - {fileID: 458342}
   - {fileID: 414184}
   m_Father: {fileID: 477808}
   m_RootOrder: 3
@@ -409,12 +409,12 @@ MonoBehaviour:
   tileSizeZ: 16.6000004
   bobSpeed: 1
   bobDamper: 5
---- !u!198 &19801688
+--- !u!198 &19805172
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168024}
+  m_GameObject: {fileID: 180664}
   lengthInSec: .5
   startDelay: 0
   speed: 1
@@ -583,7 +583,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4278245631
+        rgba: 4294967295
       minMaxState: 0
     startSize:
       scalar: 1.5
@@ -667,7 +667,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 30
+      scalar: 29.0900002
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -814,7 +814,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 39128
+        atime0: 15613
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -2541,17 +2541,17 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!199 &19920474
+--- !u!199 &19910772
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168024}
+  m_GameObject: {fileID: 180664}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 76be9796db0c94d898433ebba5c7bdb1, type: 2}
+  - {fileID: 2100000, guid: 81f7b3d1c644f4ba187c54b1c9eaa687, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

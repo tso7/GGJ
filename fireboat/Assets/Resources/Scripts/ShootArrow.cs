@@ -25,7 +25,8 @@ public class ShootArrow : MonoBehaviour {
     private bool isFiredLeft = false;
     private bool isFiredRight = false;
 
-    private Animator anim;
+    private Animator animLeft;
+    private Animator animRight;
 
     private GameObject curArrowLeft;
     private GameObject curArrowRight;
@@ -33,6 +34,15 @@ public class ShootArrow : MonoBehaviour {
     private GameObject curTarget;
     private int missPointIndex = 0;
 
+    void Start()
+    {
+        animLeft = GameObject.FindGameObjectWithTag("LeftVik").GetComponent<Animator>();
+        animRight = GameObject.FindGameObjectWithTag("RightVik").GetComponent<Animator>();
+        if (!animLeft || !animRight)
+        {
+            Debug.LogError("You messed up with the animators");
+        }
+    }
     void Update()
     {
         CheckForShotLeft();
@@ -43,10 +53,9 @@ public class ShootArrow : MonoBehaviour {
     {
         if (SliderMovementLeft.curState != SliderMovementLeft.State.Moving && !isFiredLeft)
         {
+            animLeft.SetBool("shoot", true);
             isFiredLeft = true;
             curArrowLeft = (GameObject)Instantiate(arrowLeft, startMarkerLeft.position, Quaternion.identity);
-            //anim = curArrowLeft.GetComponent<Animator>();
-
             switch (SliderMovementLeft.curState)
             {
                 case SliderMovementLeft.State.Sweet:
@@ -86,7 +95,6 @@ public class ShootArrow : MonoBehaviour {
 
             StartCoroutine(ArrowTriggerLeft(startMarkerLeft.position, curTarget, 2.0f));
             SoundManager.instance.LeftArrowRandom(arrowRelease);
-            //anim.SetBool("fired", true);
         }
     }
     IEnumerator ArrowTriggerLeft(Vector3 startPos, GameObject target, float time) {
@@ -130,6 +138,7 @@ public class ShootArrow : MonoBehaviour {
         SliderMovementLeft.Instance.flavorText[3].enabled = false;
 
         isFiredLeft = false;
+        animLeft.SetBool("shoot", false);
 
     }
 
@@ -137,7 +146,8 @@ public class ShootArrow : MonoBehaviour {
     {
         if (SliderMovementRight.curState != SliderMovementRight.State.Moving && !isFiredRight)
         {
-            isFiredRight = true;            
+            isFiredRight = true;
+            animRight.SetBool("shoot", true);
             curArrowRight = (GameObject)Instantiate(arrowRight, startMarkerRight.position, Quaternion.identity);
             //anim = curArrowRight.GetComponent<Animator>();
 
@@ -178,7 +188,7 @@ public class ShootArrow : MonoBehaviour {
 
             StartCoroutine(ArrowTriggerRight(startMarkerRight.position, curTarget, 2.0f));
             SoundManager.instance.RightArrowRandom(arrowRelease);
-            //anim.SetBool("fired", true);
+            
         }
     }
     IEnumerator ArrowTriggerRight(Vector3 startPos, GameObject target, float time)
@@ -223,5 +233,6 @@ public class ShootArrow : MonoBehaviour {
         SliderMovementRight.Instance.flavorText[3].enabled = false;
 
         isFiredRight = false;
+        animRight.SetBool("shoot", false);
     }
 }

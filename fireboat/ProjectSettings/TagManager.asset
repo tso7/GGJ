@@ -11,6 +11,8 @@ TagManager:
   - boat
   - arrow
   - sliderRight
+  - LeftVik
+  - RightVik
   layers:
   - Default
   - TransparentFX

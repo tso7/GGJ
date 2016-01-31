@@ -8,6 +8,10 @@ public class RestartGame : MonoBehaviour {
         {
             UpdateScore.leftScore = 0;
             UpdateScore.rightScore = 0;
+            SliderMovementLeft.curState = SliderMovementLeft.State.Moving;
+            SliderMovementRight.curState = SliderMovementRight.State.Moving;
+            SliderMovementLeft.isFiring = false;
+            SliderMovementRight.isFiring = false;
             Application.LoadLevel(0);
         }
     }

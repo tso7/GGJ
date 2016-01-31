@@ -26,6 +26,8 @@ public class ChangeSpriteOnInput : MonoBehaviour {
                 {
                     ps[2].Stop();
                     ps[4].Play();
+                    UpdateScore.ScoreUpdate(1, 1);
+                    UpdateScore.ScoreUpdate(2, 1);
                 }
                 else
                     ps[0].Play();
@@ -35,6 +37,8 @@ public class ChangeSpriteOnInput : MonoBehaviour {
                 {
                     ps[0].Stop();
                     ps[4].Play();
+                    UpdateScore.ScoreUpdate(2, 1);
+                    UpdateScore.ScoreUpdate(1, 1);
                 }
                 else
                     ps[2].Play();

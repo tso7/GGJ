@@ -5,7 +5,7 @@ public class RandomFloatGenerator : GenericSingleton<RandomFloatGenerator>
 {
 
 	public float min = 2.0f;
-	public float max = 4.0f;
+	public float max = 3.5f;
 	public float result = 3.0f;
 	public float timer = 10f;
 	private int x = 0;
