@@ -89,6 +89,7 @@ public class ShootArrow : MonoBehaviour {
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
+            UpdateScore.ScoreUpdate(1, 1);
         }
         else
         {
@@ -152,6 +153,7 @@ public class ShootArrow : MonoBehaviour {
         {
             target.GetComponent<ChangeSpriteOnInput>().ChangeSprite();
             SoundManager.instance.PlaySingle(arrowImpact);
+            UpdateScore.ScoreUpdate(2, 1);
         }
         else
         {

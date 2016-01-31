@@ -55,6 +55,8 @@
      <Compile Include="Assets\Resources\Scripts\SliderMovementLeft.cs" />
      <Compile Include="Assets\Resources\Scripts\SliderMovementRight.cs" />
      <Compile Include="Assets\Resources\Scripts\SoundManager.cs" />
+     <Compile Include="Assets\Resources\Scripts\TitleScript.cs" />
+     <Compile Include="Assets\Resources\Scripts\UpdateScore.cs" />
      <Compile Include="Assets\Resources\Scripts\WaveScroller.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
